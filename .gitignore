@@ -1,0 +1,10 @@
+node_modules/
+web-viewer/node_modules/
+web-viewer/dist/
+*.mp4
+*.mov
+*.zip
+*.ply
+*.splat
+__pycache__/
+.env

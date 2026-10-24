@@ -1,0 +1,254 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #0b0f19;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #f8fafc;
+}
+
+.viewer-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: #38bdf8;
+  font-weight: 300;
+  pointer-events: none;
+  z-index: 10;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 15, 25, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  cursor: pointer;
+}
+
+.modal {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 32px 40px;
+  max-width: 540px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.modal h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #38bdf8;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-bottom: 24px;
+}
+
+.instructions {
+  background: #0f172a;
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.15);
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+}
+
+.keys-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+
+.keys-list span {
+  display: inline-block;
+  min-width: 90px;
+  font-weight: 700;
+  color: #f1f5f9;
+  background: #1e293b;
+  border: 1px solid #475569;
+  border-radius: 4px;
+  padding: 2px 6px;
+  text-align: center;
+  margin-right: 8px;
+}
+
+.start-btn {
+  background: #0284c7;
+  color: white;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.start-btn:hover {
+  background: #0369a1;
+  transform: translateY(-1px);
+}
+
+.telemetry-bar {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: flex;
+  gap: 12px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid #334155;
+  backdrop-filter: blur(8px);
+  padding: 8px 16px;
+  border-radius: 8px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.telemetry-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.telemetry-item .label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.05em;
+}
+
+.telemetry-item .val {
+  font-size: 13px;
+  font-weight: 600;
+  color: #f8fafc;
+  font-family: monospace;
+}
+
+.status {
+  color: #f59e0b !important;
+}
+
+.status.active {
+  color: #10b981 !important;
+}
+
+.poi-panel {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 280px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid #334155;
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  padding: 14px;
+  z-index: 10;
+}
+
+.poi-panel h3 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  margin-bottom: 12px;
+}
+
+.poi-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 180px;
+  overflow-y: auto;
+  margin-bottom: 12px;
+}
+
+.poi-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e293b;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.poi-name {
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.poi-coords {
+  font-family: monospace;
+  font-size: 11px;
+  color: #38bdf8;
+}
+
+.poi-input-group {
+  display: flex;
+  gap: 6px;
+}
+
+.poi-input-group input {
+  flex: 1;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  color: #f8fafc;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.poi-input-group input:focus {
+  outline: none;
+  border-color: #38bdf8;
+}
+
+.poi-input-group button {
+  background: #0284c7;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
